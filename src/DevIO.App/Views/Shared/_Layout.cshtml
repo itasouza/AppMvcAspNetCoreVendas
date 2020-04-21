@@ -1,0 +1,93 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Projeto Completo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/app-creative.min.css" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="~/assets/css/app-creative-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css" />
+
+
+    @RenderSection("Styles", false)
+</head>
+
+<body class="loading" data-layout="topnav">
+    <!-- Begin page -->
+    <div class="wrapper">
+
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+                <!-- Topbar Start -->
+                <partial name="_topbar.cshtml" />
+                <!-- end Topbar -->
+                <partial name="_topnav.cshtml" />
+
+                @RenderBody()
+
+
+            </div>
+            <!-- content -->
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            &copy;2020 © Projeto Completo - <!-- <email email-domain="tasdigital.com.br">contato</email> - <email>itasouza</email> -->
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="text-md-right footer-links d-none d-md-block">
+                                <a href="javascript: void(0);">Sobre</a>
+                                <a href="javascript: void(0);">Suporte</a>
+                                <a href="javascript: void(0);">Contate-nos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+
+
+    <div class="rightbar-overlay"></div>
+    <!-- /Right-bar -->
+    <!-- bundle -->
+    <script src="~/assets/js/vendor.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
+    <script src="~/js/jquery.mask/jquery.mask.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

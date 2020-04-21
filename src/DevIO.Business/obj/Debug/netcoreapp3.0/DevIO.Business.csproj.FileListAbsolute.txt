@@ -1,0 +1,9 @@
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\bin\Debug\netcoreapp3.0\DevIO.Business.deps.json
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\bin\Debug\netcoreapp3.0\DevIO.Business.dll
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\bin\Debug\netcoreapp3.0\DevIO.Business.pdb
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\obj\Debug\netcoreapp3.0\DevIO.Business.csprojAssemblyReference.cache
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\obj\Debug\netcoreapp3.0\DevIO.Business.csproj.CoreCompileInputs.cache
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\obj\Debug\netcoreapp3.0\DevIO.Business.AssemblyInfoInputs.cache
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\obj\Debug\netcoreapp3.0\DevIO.Business.AssemblyInfo.cs
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\obj\Debug\netcoreapp3.0\DevIO.Business.dll
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Business\obj\Debug\netcoreapp3.0\DevIO.Business.pdb

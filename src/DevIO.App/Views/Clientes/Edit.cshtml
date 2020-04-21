@@ -1,0 +1,105 @@
+﻿@model DevIO.App.ViewModels.ClienteViewModel
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+    var controller = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<p>
+
+</p>
+
+@section Styles
+{
+    <style type="text/css">
+        a:not([href]):not([tabindex]) {
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+}
+
+
+<div class="container">
+    <partial name="_PartialMensagens" />
+</div>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card ribbon-box">
+                <div class="card-body">
+                    <div class="ribbon ribbon-primary float-left"><i class="mdi mdi-access-point mr-1"></i> Editar Cliente</div>
+                    <h5 class="text-primary float-right mt-0"></h5>
+                    <div class="ribbon-content">
+
+                        <form asp-action="Edit">
+
+                            <!--mensagens -->
+                            <vc:Summary></vc:Summary>
+
+                            <input type="hidden" asp-for="Id" />
+                            <div class="form-group">
+                                <label asp-for="Nome" class="control-label"></label>
+                                <input asp-for="Nome" maxlength="100" class="form-control" />
+                                <span asp-validation-for="Nome" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Documento" class="control-label"></label>
+                                <input asp-for="Documento" maxlength="14" class="form-control" />
+                                <span asp-validation-for="Documento" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="TipoCliente" class="control-label"></label><br />
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" value="1" id="customRadio1" asp-for="TipoCliente" checked="@(Model.TipoCliente == 1)" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio1">Pessoa Física</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" value="2" id="customRadio2" asp-for="TipoCliente" checked="@(Model.TipoCliente == 2)" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio2">Pessoa Júridica</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" asp-for="Ativo" class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2"> @Html.DisplayNameFor(model => model.Ativo)</label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="submit" value="Salvar" class="btn btn-primary" />
+                                <a class="btn btn-info" asp-action="Index">Voltar</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div> <!-- end card-body -->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+
+</div>
+
+<!--lista com os endereços-->
+<partial name="_DetalhesEndereco" />
+<partial name="_ModalExclusao" />
+<partial name="_ModalCadastroEndereco" />
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/cliente.js"></script>
+
+}
+
+
+

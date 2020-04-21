@@ -1,0 +1,101 @@
+﻿@model DevIO.App.ViewModels.ClienteViewModel
+
+
+
+@{
+    ViewData["Title"] = "Endereço Cliente";
+    var controller = this.ViewContext.RouteData.Values["controller"].ToString();
+
+}
+
+<p>
+
+</p>
+
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="col-md-12 col py-1 ">
+                            <h4 class="header-title">Lista de Endereço</h4>
+                            <p supress-by-claim-name="Fornecedor" supress-by-claim-value="Adicionar">
+                                <a href="#" class="btn btn-outline-primary" onclick="ExibirModalAdicionarEndereco('@controller')">Adicionar</a>
+                            </p>
+                        </div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="striped-rows-preview">
+                                <div class="table-responsive-sm">
+                                    <table id="DetalheEndereco" class="table table-striped table-centered mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>@Html.DisplayNameFor(model => model.Endereco.Logradouro)</th>
+                                                <th>@Html.DisplayNameFor(model => model.Endereco.Numero)</th>
+                                                <th>@Html.DisplayNameFor(model => model.Endereco.Complemento)</th>
+                                                <th>@Html.DisplayNameFor(model => model.Endereco.Bairro)</th>
+                                                <th>@Html.DisplayNameFor(model => model.Endereco.Cep)</th>
+                                                <th>@Html.DisplayNameFor(model => model.Endereco.Cidade)</th>
+                                                <th>@Html.DisplayNameFor(model => model.Endereco.Estado)</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                            @foreach (var item in Model.Enderecos)
+                                            {
+
+
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Id)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Logradouro)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Numero)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Complemento)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Bairro)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Cep)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Cidade)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(model => item.Estado)
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a supress-by-claim-name="Fornecedor" supress-by-claim-value="Editar" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editar" onclick="ExibirModalEditarEndereco('@item.Id', '@controller')"><i class="mdi mdi-pencil"></i> </a>
+                                                        <a supress-by-claim-name="Fornecedor" supress-by-claim-value="Excluir" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar" onclick="ExibirModalExcluir('@item.Id','@item.Logradouro','@controller')"><i class="mdi mdi-delete"></i> </a>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end card body-->
+                </div> <!-- end card -->
+            </div><!-- end col-->
+        </div>
+
+    </div>
+

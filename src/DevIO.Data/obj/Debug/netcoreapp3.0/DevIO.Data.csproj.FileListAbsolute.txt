@@ -1,0 +1,12 @@
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\bin\Debug\netcoreapp3.0\DevIO.Data.deps.json
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\bin\Debug\netcoreapp3.0\DevIO.Data.dll
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\bin\Debug\netcoreapp3.0\DevIO.Data.pdb
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\bin\Debug\netcoreapp3.0\DevIO.Business.dll
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\bin\Debug\netcoreapp3.0\DevIO.Business.pdb
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\obj\Debug\netcoreapp3.0\DevIO.Data.csprojAssemblyReference.cache
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\obj\Debug\netcoreapp3.0\DevIO.Data.csproj.CoreCompileInputs.cache
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\obj\Debug\netcoreapp3.0\DevIO.Data.AssemblyInfoInputs.cache
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\obj\Debug\netcoreapp3.0\DevIO.Data.AssemblyInfo.cs
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\obj\Debug\netcoreapp3.0\DevIO.Data.csproj.CopyComplete
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\obj\Debug\netcoreapp3.0\DevIO.Data.dll
+C:\src\AppMvcAspNetCoreVendas\src\DevIO.Data\obj\Debug\netcoreapp3.0\DevIO.Data.pdb

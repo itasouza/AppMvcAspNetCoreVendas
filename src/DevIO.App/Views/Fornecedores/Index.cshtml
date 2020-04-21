@@ -1,0 +1,290 @@
+﻿@model X.PagedList.IPagedList<DevIO.App.ViewModels.FornecedorViewModel>
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Common
+@using DevIO.App.Extensions
+
+@{
+    ViewData["Title"] = "Lista de Fornecedor";
+    var controller = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<p>
+
+</p>
+
+@section Styles
+{
+    <style type="text/css">
+        a:not([href]):not([tabindex]) {
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+}
+
+
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="tab-content">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Portlet card -->
+                                <div class="card bg-success text-white mb-md-0 mb-3">
+                                    <div class="card-body">
+                                        <div class="card-widgets">
+                                            <a href="javascript:;" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
+                                            <a data-toggle="collapse" href="#cardCollpase2" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="mdi mdi-minus"></i></a>
+                                        </div>
+                                        <h5 class="card-title mb-0">Consultar Informações</h5>
+                                        <div id="cardCollpase2" class="collapse pt-3 @ViewBag.show">
+                                            <!--formulário-->
+                                            @using (Html.BeginForm("Index", "Fornecedores", FormMethod.Get, new { id = "formBusca" }))
+                                            {
+
+
+                                                <div class="row">
+
+                                                    <div class="col-md-3">
+
+                                                        <div class="form-group mb-3">
+                                                            <label for="selecao" class="control-label">Selecione Opção</label>
+                                                            <select name="valorSelecao" class="form-control select2" data-toggle="select2">
+                                                                <!option value="0" @(ViewBag.valorSelecao == 0 ? "selected" : "")>Selecione</!option>
+                                                                <!option value="1" @(ViewBag.valorSelecao == 1 ? "selected" : "")>@Html.DisplayNameFor(model => model.FirstOrDefault().Nome)</!option>
+                                                                <!option value="2" @(ViewBag.valorSelecao == 2 ? "selected" : "")>@Html.DisplayNameFor(model => model.FirstOrDefault().Documento)</!option>
+                                                                <!option value="3" @(ViewBag.valorSelecao == 3 ? "selected" : "")>@Html.DisplayNameFor(model => model.FirstOrDefault().DataCadastro)</!option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group mb-3">
+                                                            <label for="textopesquisa">Pesquisar por..</label>
+                                                            <input type="text" class="form-control" id="textopesquisa" name="TextoPesquisa" placeholder="Adicionar texto da consulta" value="@ViewBag.TextoPesquisa" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+
+                                                        <div class="form-group mb-3">
+                                                            <label for="datainicial">Data Inicial</label>
+                                                            <input type="text" class="form-control datepicker" id="datainicial" name="DataInicial" data-provide="datepicker"
+                                                                   data-date-autoclose="true" placeholder="Data inicial" value="@ViewBag.DataInicial" />
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-2">
+
+                                                        <div class="form-group mb-3">
+                                                            <label for="datafinal">Data Final</label>
+                                                            <input type="text" class="form-control datepicker " id="datafinal" name="DataFinal" data-provide="datepicker"
+                                                                   data-date-autoclose="true" placeholder="Data final" value="@ViewBag.DataFinal" />
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button class="btn btn-warning" type="submit">Consultar</button>
+                                                </div>
+                                            }
+                                            <!--fim formulário-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <partial name="_PartialMensagens" />
+
+            <div class="card">
+                <div class="card-body">
+
+                    <p class="card-text">
+                    </p>
+                    <div class="col-md-12 col py-1 ">
+                        <h4 class="header-title">Lista de Fornecedores</h4>
+                        <p supress-by-claim-name="Fornecedor" supress-by-claim-value="Adicionar">
+                            <a asp-action="Create" class="btn btn-outline-primary">Adicionar</a>
+
+                            <div class="text-lg-right">
+  
+                                <div class="btn-group">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-settings-transfer-outline"></i> Exportação <span class="caret"></span> </button>
+                                        <div class="dropdown-menu">
+                                            <a asp-action="VisualizarCSV" class="dropdown-item">Formato CSV</a>
+                                            <a asp-action="VisualizarArquivoPDF" class="dropdown-item">Formato PDF</a>
+                                            <a asp-action="VisualizarHTML" class="dropdown-item">Formato HTML</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </p>
+                    </div>
+
+
+                    <br />
+
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="striped-rows-preview">
+                            <div class="table-responsive-sm">
+                                <table class="table table-striped table-centered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().Nome), "Index", new { sortOrder = "Nome" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().Documento), "Index", new { sortOrder = "Documento" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().TipoFornecedor), "Index", new { sortOrder = "TipoFornecedor" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().Ativo), "Index", new { sortOrder = "Ativo" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().DataCadastro), "Index", new { sortOrder = "DataCadastro" })
+                                            </th>
+
+                                            <th>Ações</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Nome)
+                                                </td>
+                                                <td>
+                                                    @this.FormataDocumento(item.TipoFornecedor, item.Documento)
+                                                </td>
+
+
+                                                @if (item.TipoFornecedor == 1)
+                                                {
+
+                                                    <td><span class="badge badge-warning">Pessoa Física</span></td>
+                                                }
+                                                else
+                                                {
+                                                    <td><span class="badge badge-success">Pessoa Jurídica</span></td>
+                                                }
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ativo)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                                                </td>
+
+                                                <td class="table-action">
+                                                    <a supress-by-claim-name="Fornecedor" supress-by-claim-value="Editar" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editar"><i class="mdi mdi-pencil"></i> </a>
+                                                    <a supress-by-claim-name="Fornecedor" supress-by-claim-value="Excluir" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar" onclick="ExibirModalExcluir('@item.Id','@item.Nome','@controller')"><i class="mdi mdi-delete"></i> </a>
+                                                </td>
+                                            </tr>
+
+                                        }
+
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class=text-right>
+                                    Listando registros de @Model.FirstItemOnPage
+                                    a @Model.LastItemOnPage de um total de @Model.TotalItemCount
+                                </div>
+
+
+                                @Html.PagedListPager(Model, pagina => Url.Action("Index", "Fornecedores", new { pagina }), new PagedListRenderOptionsBase
+                                {
+                                    LiElementClasses = new string[] { "page-item" },
+                                    PageClasses = new string[] { "page-link" }
+                                })
+
+
+                            </div> <!-- end table-responsive-->
+                        </div> <!-- end preview-->
+
+                    </div> <!-- end tab-content-->
+
+                </div> <!-- end card body-->
+            </div> <!-- end card -->
+        </div><!-- end col-->
+    </div>
+
+</div>
+
+<form asp-action="Create">
+</form>
+
+
+<partial name="_ModalExclusao" />
+
+
+@section Scripts {
+
+
+
+    <script>
+
+
+        function ExibirModalExcluir(idRecebido, nome, controller) {
+
+            var t = $("input[name='__RequestVerificationToken']").val();
+            $(".nome")[0].innerHTML = nome;
+            $("#modal-excluir").modal();
+
+            $(".btn-Confirmar").on("click", function () {
+
+                var urlCompleto = "/" + controller + "/Delete/";
+
+                $.ajax({
+                    method: "POST",
+                    headers:
+                    {
+                        "RequestVerificationToken": t
+                    },
+                    url: urlCompleto,
+                    data: { id: idRecebido },
+                    success: function (resultado) {
+                        //console.log(data);
+                        toastr[resultado.result](resultado.mensaje)
+                        $(".modal").modal("hide");
+                        location.reload(true);
+                    }
+                })
+            });
+
+        };
+
+
+    </script>
+}
